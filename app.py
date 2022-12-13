@@ -42,8 +42,6 @@ cleaned_data=ob1.preprocessing()
 ob2=hourly_trend(dataframe=cleaned_data,start_time='01:00:00',end_time='23:59:59',step=30)
 trend_table=ob2.dynamic()
 
-
-
 newpath = f'.\OUTPUT\TREND\{trend_table.date.values[0][5:7]}' 
 if not os.path.exists(newpath):
     os.makedirs(newpath)
