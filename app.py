@@ -52,20 +52,13 @@ trend_table=ob2.dynamic()
 print(trend_table.columns)
 print(trend_table)
 
-try:
 
-    newpath = f'.\OUTPUT\TREND\{trend_table.date.values[0][5:7]}' 
-    if not os.path.exists(newpath):
-        os.makedirs(newpath)
-        trend_table.to_csv(f'OUTPUT\TREND\{trend_table.date.values[0][5:7]}\{trend_table.date.values[0]}.csv')
 
-except KeyError:
+newpath = f'.\OUTPUT\TREND\{trend_table.date.values[0][5:7]}' 
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
+    trend_table.to_csv(f'OUTPUT\TREND\{trend_table.date.values[0][5:7]}\{trend_table.date.values[0]}.csv')
 
-    trend_table.to_csv(f"trendtableerrorfree.csv")
-
-except OSError:
-
-    trend_table.to_csv(f"trendtableerrorfree.csv")
 
 
 
