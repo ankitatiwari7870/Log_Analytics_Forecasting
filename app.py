@@ -35,22 +35,12 @@ csv_files = glob.glob(os.path.join(path, "*.csv"))
 csv_files
 path_req=path+r'\RAW_DATA\request_raw'
 path_pv=path+r'\RAW_DATA\page_viewRaw'
-print(path)
-print(path_req)
-print(path_pv)
-
-
 merged_data = data_merger(path_req,path_pv)
-print(merged_data.shape)
-
 ob1=data_prepration(merged_data=merged_data)
 cleaned_data=ob1.preprocessing()
 
-ob2=hourly_trend(dataframe=cleaned_data,start_time='09:00:00',end_time='10:00:00',step=30)
+ob2=hourly_trend(dataframe=cleaned_data,start_time='01:00:00',end_time='23:59:59',step=30)
 trend_table=ob2.dynamic()
-
-print(trend_table.columns)
-print(trend_table)
 
 
 
